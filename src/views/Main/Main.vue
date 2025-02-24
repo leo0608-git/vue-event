@@ -6,6 +6,7 @@
       <img src="../../assets/images/logo.png" alt="" />
       <!-- 右侧的菜单 -->
       <el-menu
+        router
         class="el-menu-top"
         mode="horizontal"
         background-color="#23262E"
@@ -15,12 +16,15 @@
         <el-submenu index="1">
           <template slot="title">
             <!-- 头像 -->
-            <img src="../../assets/logo.png" alt="" class="avatar" />
+            <img v-if="userInfo.user_pic" :src="userInfo.user_pic" alt="" class="avatar" />
+            <img v-else src="../../assets/logo.png" alt="" class="avatar" />
             <span>个人中心</span>
           </template>
-          <el-menu-item index="1-1"><i class="el-icon-s-operation"></i>基本资料</el-menu-item>
-          <el-menu-item index="1-2"><i class="el-icon-camera"></i>更换头像</el-menu-item>
-          <el-menu-item index="1-3"><i class="el-icon-key"></i>重置密码</el-menu-item>
+          <template v-if="menus[2]">
+            <el-menu-item v-for="item in menus[2].children" :key="item.indexPath" :index="item.indexPath">
+              <i :class="item.icon"></i>{{item.title}}
+            </el-menu-item>
+          </template>
         </el-submenu>
         <el-menu-item @click="logout" index="2"><i class="el-icon-switch-button"></i>退出</el-menu-item>
       </el-menu>
@@ -41,7 +45,7 @@
         <!-- el-menu里的router属性：是否使用 vue-router 的模式，启用该模式会在激活导航时以 index 作为 path 进行路由跳转 -->
         <el-menu
           :router="true"
-          default-active="/home"
+          :default-active="$route.path"
           background-color="#23262E"
           text-color="#fff"
           active-text-color="#409EFF">
@@ -74,7 +78,7 @@
       <el-container>
         <!-- 页面主体区域 -->
         <el-main>
-          Main.vue后台主页
+          <router-view></router-view>
         </el-main>
         <!-- 底部 footer 区域 -->
         <el-footer>© www.itheima.com - 黑马程序员</el-footer>

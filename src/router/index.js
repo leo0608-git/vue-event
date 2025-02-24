@@ -4,6 +4,9 @@ import Reg from '../views/Reg/Reg.vue'
 import Login from '../views/Login/Login.vue'
 import Main from '../views/Main/Main.vue'
 import store from '../store/index.js'
+import Home from '../views/Menus/Home/Home.vue'
+import UserInfo from '../views/Menus/User/UserInfo.vue'
+import UserAvatar from '../views/Menus/User/UserAvatar.vue'
 Vue.use(VueRouter)
 
 // 把下面的代码粘贴到路由模块中对应的位置，即可防止路由报错的问题:redundant navigation to one same location
@@ -23,7 +26,22 @@ const routes = [
   },
   {
     path:'/',
-    component:Main
+    component:Main,
+    redirect:'/home',
+    children:[
+      {
+        path:'home',
+        component:Home
+      },
+      {
+        path:'user-info',
+        component:UserInfo
+      },
+      {
+        path:'user-avatar',
+        component:UserAvatar
+      }
+    ]
   }
 ]
 
