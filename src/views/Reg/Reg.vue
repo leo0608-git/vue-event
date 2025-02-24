@@ -19,7 +19,7 @@
         </el-form-item> 
         <el-form-item>
           <el-button type="primary" round class="btn-reg" @click="submitForm('regForm')">注册</el-button>
-          <el-link type="info">去登录</el-link>
+          <el-link @click="$router.push('/login')" type="info">去登录</el-link>
         </el-form-item> 
       </el-form>
     </div>
