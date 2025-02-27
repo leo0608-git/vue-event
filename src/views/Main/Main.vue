@@ -5,6 +5,7 @@
       <!-- 左侧的 logo -->
       <img src="../../assets/images/logo.png" alt="" />
       <!-- 右侧的菜单 -->
+       <!-- router：开启路由模式会将index作为path进行路由跳转 -->
       <el-menu
         router
         class="el-menu-top"
@@ -26,7 +27,7 @@
             </el-menu-item>
           </template>
         </el-submenu>
-        <el-menu-item @click="logout" index="2"><i class="el-icon-switch-button"></i>退出</el-menu-item>
+        <el-menu-item @click="logout"><i class="el-icon-switch-button"></i>退出</el-menu-item>
       </el-menu>
     </el-header>
     <!-- 侧边栏区域 -->

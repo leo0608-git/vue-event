@@ -7,6 +7,9 @@ import store from '../store/index.js'
 import Home from '../views/Menus/Home/Home.vue'
 import UserInfo from '../views/Menus/User/UserInfo.vue'
 import UserAvatar from '../views/Menus/User/UserAvatar.vue'
+import UserPwd from '../views/Menus/User/UserPwd.vue'
+import ArtCate from '@/views/Menus/Article/ArtCate.vue'
+import ArtList from '@/views/Menus/Article/ArtList.vue'
 Vue.use(VueRouter)
 
 // 把下面的代码粘贴到路由模块中对应的位置，即可防止路由报错的问题:redundant navigation to one same location
@@ -40,6 +43,18 @@ const routes = [
       {
         path:'user-avatar',
         component:UserAvatar
+      },
+      {
+        path:'user-pwd',
+        component:UserPwd
+      },
+      {
+        path:'art-cate',
+        component:ArtCate
+      },
+      {
+        path:'art-list',
+        component:ArtList
       }
     ]
   }

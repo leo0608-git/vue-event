@@ -7,6 +7,14 @@ import './assets/global.less'
 // 完整引入ElementUI
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+// 引入vue-quill-editor
+import VueQuillEditor from 'vue-quill-editor'
+// 引入样式
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+// 注册全局组件
+Vue.use(VueQuillEditor)
 // 引入axios
 import axios from 'axios'
 // 配置baseURL
